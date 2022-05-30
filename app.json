@@ -1,25 +1,25 @@
 {
-  "name": "Efsane Music",
-  "description": "Telegram'ınızın Grup Sesli Sohbeti'nde şarkı çalmak için Açık Kaynaklı bot. Powered by Mehmetbaba55.",
-  "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/Mehmetbaba55/EfsaneMusic",
+  "name": "Mamaklı Müzik Oynatıcı",
+  "description": "Mamaklının emriyle müzik çalmak için kullanılır.",
+  "keywords": ["müzikbotu", "sesli", "telegram"],
+  "repository": "https://github.com/Mamakli0655/mamaklimbott",
   "stack": "container",
   "env": {
     "SESSION_NAME": {
-      "description": "Pyrogram oturum dizesi (Replit.com)",
+      "description": "saçma sapan bişey  (Replit.com)",
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "Bir bot belirteci @botfather ile alınız",
+      "description": "API tokeni ver gardas @botfather ile alınız",
       "required": true
     },
     "BOT_NAME": {
-      "description": "Müzik Oynatıcı Bot Adınız.",
+      "description": "botun adı ne olsun la.",
       "required": false,
       "value": ""
     },
     "BOT_USARNAME": {
-      "description": "Müzik Oynatıcı Bot Kullanıcı İsmi @ olmadan yazınız.",
+      "description": "botun kullanıcı adını yaz  @ olmadan yazınız.",
       "required": true,
       "value": ""
      
@@ -33,7 +33,7 @@
       "required": true
     },
     "SUDO_USERS": {
-      "description": "Her yerde yönetici olarak sayılan kullanıcı kimliklerinin listesi (Müzik hesabınının id'si).",
+      "description": "botun id si (Müzik hesabınının id'si).",
       "required": true
     },
     "DURATION_LIMIT": {
