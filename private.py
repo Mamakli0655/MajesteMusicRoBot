@@ -3,34 +3,34 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 
 from config import BOT_USERNAME, BOT_NAME as bot
 from helpers.filters import command, other_filters2
-# EfsaneMusicVaves tarafından düzenlendi. 
+# Mamaklı tarafından düzenlendi. 
 
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]))
 async def start(_, message: Message):
                 await message.reply_photo(
-                "https://i.ibb.co/khRz42f/Turkish-Voice.jpg",
-                caption=(f"""**Merhaba {message.from_user.mention} 🎵\nBen @MajesteMusicRoBot!\nSesli sohbetlerde müzik çalabilen botum. Ban yetkisiz, Ses yönetimi yetkisi verip, Asistanı gruba ekleyiniz.\n\nDüzen Tasarım [Majeste Müzik 🎙️](https://t.me/MajesteBotlar).**"""),
+                "https://ibb.co/FKWzS3F",
+                caption=(f"""**selamün aleyküm {message.from_user.mention} 🎵\nBen @Mamaklimbot!\nMüzik dinle diye varım . Ban yetkisiz, Ses yönetimi yetkisi verip, Asistanı gruba ekle ama kızlara yürür bilgin olsun.\n\nDüzen Tasarım [@Sendenolmazbiyol](https://t.me/Sendenolmazbiryol).**"""),
          reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ ❰ Grubuna Ekle ❱ ➕", url=f"https://t.me/MajesteMusicRobot?startgroup=true"
+                        "➕ ❰ Grubuna gidelim bebeğim ❱ ➕", url=f"https://t.me/Mamaklimbot?startgroup=true"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🔊 Asistan", url="https://t.me/MajesteMusicAsistan"
+                        "🔊 Sese gelen asistan", url="https://t.me/sendenolmazbiryol"
                     ),
                     InlineKeyboardButton(
-                        "💬 Sohbet", url="https://t.me/Majesteler"
+                        "💬 Kaynatmak için", url="https://t.me/Sendenolmazbiyol"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🧩 Komutlar" , callback_data= "cbbilgi"
+                        "🧩 Nasıl çalacağın" , callback_data= "cbbilgi"
                     ),
                     InlineKeyboardButton(
-                        "Resmi Kanal 🇹🇷", url=f"https://t.me/MajesteBotlar"
+                        "Resmi Kanal 🇹🇷", url=f"https://t.me/Mamaklininchannnel"
                     )
                 ]
                 
@@ -40,7 +40,7 @@ async def start(_, message: Message):
   
 
 
-@Client.on_message(command(["bilgi", f"bilgi@MajesteMusicRoBot"]))
+@Client.on_message(command(["bilgi", f"bilgi@Sendenolmazbiyol"]))
 async def bilgi(_, message: Message):
       await message.reply_text(" ❗ Not:\n Botun aktif çalışması için şu üç yetkiye ihtiyaç vardır:\n- Mesaj silme yetkisi,\n- Bağlantı ile davet etme yetkisi,\n- Sesli sohbeti yönetme yetkisi.", 
       reply_markup=InlineKeyboardMarkup(
@@ -50,13 +50,13 @@ async def bilgi(_, message: Message):
                          "🔴 Herkes için komutlar", callback_data="herkes")
                  ],[                     
                      InlineKeyboardButton(
-                         "⚫ Adminler için komutlar", callback_data="admin")
+                         "⚫ Amdinler için komutlar", callback_data="admin")
                  ],[
                      InlineKeyboardButton(
                          "Ana menü🏠", callback_data="cbstart")
                  ],[
                      InlineKeyboardButton(
-                         "⚙ Geliştirici", url="https://t.me/Yorgun_Birisi")
+                         "⚙ Geliştirici", url="https://t.me/SendenOlmazBiyol")
                  ]
              ]
          )
@@ -82,7 +82,7 @@ async def cbbilgi(_, query: CallbackQuery):
         ],
         [
           InlineKeyboardButton(
-            "⚙ Geliştirici", url="https://t.me/Yorgun_Birisi")
+            "⚙ Geliştirici", url="https://t.me/SendenolmazBiYol")
         ]
       ]
      ))
@@ -95,7 +95,7 @@ async def herkes(_, query: CallbackQuery):
              [
                  [
                      InlineKeyboardButton(
-                         "⚙ Geliştirici", url="https://t.me/Yorgun_Birisi")
+                         "⚙ Geliştirici", url="https://t.me/SendenOlmazBiYol")
                  ],
                  [
                      InlineKeyboardButton(
@@ -113,7 +113,7 @@ async def admin(_, query: CallbackQuery):
              [
                  [
                      InlineKeyboardButton(
-                         "⚙ Geliştirici", url="https://t.me/Yorgun_Birisi")
+                         "⚙ Geliştirici", url="https://t.me/Sendenolmazbiyol")
                  ],
                  [
                      InlineKeyboardButton(
@@ -126,28 +126,28 @@ async def admin(_, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
-    await query.edit_message_text(f"""**Merhaba {query.from_user.mention} 🎵\nBen @MajesteMusicRoBot!\nSesli sohbetlerde müzik çalabilen botum. Ban yetkisiz, Ses yönetimi yetkisi verip, Asistanı gruba ekleyiniz.\n\nDüzen Tasarım [Majeste Müzik 🎙️](https://t.me/MajesteBotlar).**""",
+    await query.edit_message_text(f"""**selamün aleyküm {query.from_user.mention} 🎵\nBen @Mamaklimbot!\nSana müzik çalacam. Ban yetkisiz, Ses yönetimi yetkisi verip, Asistanı gruba ekleyiniz.\n\nDüzen Tasarım [Mamaklı 🎙️](https://t.me/Sendenolmazbiyol).**""",
          reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ ❰ Grubuna Ekle ❱ ➕", url=f"https://t.me/MajesteMusicRoBot?startgroup=true"
+                        "➕ ❰ Grubuna gidelim bebeğim ❱ ➕", url=f"https://t.me/Sendenolmazbiyol?startgroup=true"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🔊 Asistan", url="https://t.me/MajesteMusicAsistan"
+                        "🔊 Sese gelen Asistan", url="https://t.me/Sendenolmazbiryol"
                     ),
                     InlineKeyboardButton(
-                        "💬 Sohbet", url="https://t.me/Majesteler"
+                        "💬 Kaynatmak için", url="https://t.me/Sendenolmazbiyol"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌀 Komutlar" , callback_data= "cbbilgi"
+                        "🌀 Nasıl çalışırım" , callback_data= "cbbilgi"
                     ),
                     InlineKeyboardButton(
-                        "Resmi Kanal 🇹🇷", url=f"https://t.me/MajesteBotlar"
+                        "Resmi Kanal 🇹🇷", url=f"https://t.me/mamaklininchannnel"
                     )
                 ]
                 
