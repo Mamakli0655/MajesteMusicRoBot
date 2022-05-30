@@ -92,7 +92,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 async def cls(_, query: CallbackQuery):
     await query.message.delete()
 
-# MajesteMusicRoBot düzenlenmiştir.
+# Mamaklı düzenlenmiştir.
 
 @Client.on_message(command(["play", "oynat"]) 
                    & filters.group
@@ -101,7 +101,7 @@ async def cls(_, query: CallbackQuery):
                    & ~filters.via_bot)
 async def play(_, message: Message):
 
-    lel = await message.reply("🔄 **ʟüᴛꜰᴇɴ ʙᴇᴋʟᴇʏiɴiᴢ...**")
+    lel = await message.reply("🔄 **bilmiyosan oynama bozacan...**")
     
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
@@ -109,7 +109,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "TaliaMusicAsistant"
+        user.first_name = "Mamaklı müzik oynatıcı"
     usar = user
     wew = usar.id
     try:
@@ -121,24 +121,24 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Önce beni Grubunun yöneticisi olarak ekle!</b>")
+                        "<b>Önce beni yt salman gerek!</b>")
                     return
 
                 try:
                     await USER.join_chat(invitelink)
                     await USER.send_message(
-                        message.chat.id, "**Merhaba Asistan bu gruba müzik çalmak için katıldı**")
+                        message.chat.id, "**Müzik çalmaya geldim**")
 
                 except UserAlreadyParticipant:
                     pass
                 except Exception:
                     await lel.edit(
-                        f"<b>🔵 Taşan Bekleme Hatası 🔵</b> \n\Merhaba {user.first_name}, yardımcı userbot, yoğun katılma istekleri nedeniyle grubunuza katılamadı. Userbot'un grupta yasaklı olmadığından emin olun ve daha sonra yeniden deneyin!")
+                        f"<b>🔵 al işte bozdun bozdun 🔵</b> \n\Merhaba {user.first_name}, yardımcı her isteyene gitmem la. Mamaklıya ulaş !")
     try:
         await USER.get_chat(chid)
     except:
         await lel.edit(
-            f"<i>Merhaba {user.first_name}, yardımcı userbot bu sohbette değil, yöneticiden göndermesini isteyin /play ilk kez eklemek için komut.</i>")
+            f"<i>Merhaba {user.first_name}, aslında ben yoğum , yöneticiden göndermesini isteyin /play ilk kez eklemek için komut.</i>")
         return
     
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
@@ -198,8 +198,8 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🚀 İnfo", url=f"https://t.me/MajesteMusicRoBot"),
-                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/MajesteBotlar"),
+                InlineKeyboardButton("🚀 İnfo", url=f"https://t.me/Mamaklimbot"),
+                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/Mamaklininchannnel"),
             ],[
                 InlineKeyboardButton("📲 Kapat", callback_data="cls"),
             ],
@@ -228,11 +228,11 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         if len(message.command) < 2:
-            return await lel.edit("🤔 **Dinlemek istediğin şarkı nedir?**")
-        await lel.edit("🔎 **Lütfen bekleyiniz...**")
+            return await lel.edit("🤔 **ne çalım abime?**")
+        await lel.edit("🔎 **bekle lan...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🔄 **Ses İşleniyor..🔥**")
+        await lel.edit("🔄 **aciyom la..🔥**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -255,7 +255,7 @@ async def play(_, message: Message):
                 
         except Exception as e:
             await lel.edit(
-                "❌ Şarkı bulunamadı.\n\nBaşka bir şarkı deneyin veya belki düzgün heceleyin."
+                "❌ Öle şarkı mi var lan.\n\nBaşka bir şarkı deneyin veya belki düzgün heceleyin."
             )
             print(str(e))
             return
@@ -263,8 +263,8 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("🚀 İnfo", url=f"https://t.me/efsanestar_bot"),
-                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/Sohbetdestek"),
+                InlineKeyboardButton("🚀 İnfo", url=f"https://t.me/mamaklimbot"),
+                InlineKeyboardButton("📣 Kanal", url=f"https://t.me/Sendenolmazbiyol"),
             ],[
                 InlineKeyboardButton("📲 Kapat", callback_data="cls"),
             ],
@@ -286,7 +286,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo="final.png",
-        caption="**🎵 şᴀʀᴋɪ:** {}\n**🕒 ꜱüʀᴇ:** {} min\n**👉 ᴇᴋʟᴇʏᴇɴ:** {}\n\n**🚧 Parça Konumu:** {}".format(
+        caption="**🎵 çalan:** {}\n**🕒 dakkası:** {} min\n**👉 hangi tosun istemiş:** {}\n\n**🚧 sırası:** {}".format(
         title, duration, message.from_user.mention(), position
         ),
         reply_markup=keyboard)
@@ -303,10 +303,10 @@ async def play(_, message: Message):
                 stream_type=StreamType().local_stream,
             )
 
-        await message.reply_photo(
+        await message.reply_pho işto(
         photo="final.png",
         reply_markup=keyboard,
-        caption="**🎵 şᴀʀᴋɪ:** {}\n**🕒 ꜱüʀᴇ:** {} min\n**👉 ᴇᴋʟᴇʏᴇɴ:** {}\n\n**☑️ Şimdi şu anda `{}`...**".format(
+        caption="**🎵 çalan:** {}\n**🕒 dakkası:** {} min\n**👉 hangi tosun istemiş:** {}\n\n**☑️ seninki kaçıncı çalacak `{}`...**".format(
         title, duration, message.from_user.mention(), message.chat.title
         ), )
         os.remove("final.png")
